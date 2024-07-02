@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mrviewModels="clr-namespace:MRAppNotas.MRViewModels"
+             x:Class="MRAppNotas.Views.MRNotePage1"
+             Title="Bienvenido a tu Editor">
+    <ContentPage.BindingContext>
+        <mrviewModels:MRNoteViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Spacing="10" Margin="5">
+        <Editor x:Name="TextEditor"
+                Placeholder="Escriba su Nota"
+                Text="{Binding Text}"
+                HeightRequest="100" />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+            <Button Text="Guardar"
+                    Command="{Binding SaveCommand}"/>
+
+            <Button Grid.Column="1"
+                    Text="Borrar"
+                    Command="{Binding DeleteCommand}"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
